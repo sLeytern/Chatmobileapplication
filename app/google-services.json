@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "794032066557",
+    "firebase_url": "https://chat-mobile-application-593c9-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "chat-mobile-application-593c9",
+    "storage_bucket": "chat-mobile-application-593c9.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:794032066557:android:92e823b524f6f191b85394",
+        "android_client_info": {
+          "package_name": "com.stoya.chatmobileapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDn8coVHclBUpaDL-Bxv3xXelEjeYaD7xw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
