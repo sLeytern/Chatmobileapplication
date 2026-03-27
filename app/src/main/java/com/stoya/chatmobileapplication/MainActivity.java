@@ -21,8 +21,6 @@ public class MainActivity extends AppCompatActivity {
         FirebaseDatabase db = FirebaseDatabase.getInstance("https://chat-mobile-application-593c9-default-rtdb.europe-west1.firebasedatabase.app");
         DatabaseReference myRef = db.getReference("message");
 
-        myRef.setValue("Работим ли, чек, чек?");
-
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
