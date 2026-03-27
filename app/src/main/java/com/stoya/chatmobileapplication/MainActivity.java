@@ -2,6 +2,8 @@ package com.stoya.chatmobileapplication;
 
 import android.os.Bundle;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -15,6 +17,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
+        FirebaseDatabase db = FirebaseDatabase.getInstance("https://chat-mobile-application-593c9-default-rtdb.europe-west1.firebasedatabase.app");
+        DatabaseReference myRef = db.getReference("message");
+
+        myRef.setValue("Работим ли, чек, чек?");
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
