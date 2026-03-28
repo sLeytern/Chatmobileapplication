@@ -2,6 +2,11 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.ChatMobileApplication" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/Primary</item>
+        <item name="colorSecondary">@color/Secondary</item>
+        <item name="colorTertiary">@color/Tertiary</item>
+
+        <item name="android:colorBackground">@color/Primary</item>
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
