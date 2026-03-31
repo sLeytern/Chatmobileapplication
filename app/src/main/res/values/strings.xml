@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ChatMobileApplication</string>
+    <string name="chatify">Chatify</string>
 </resources>
