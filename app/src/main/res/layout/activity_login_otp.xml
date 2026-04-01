@@ -9,24 +9,25 @@
     android:gravity="center"
     android:layout_margin="20dp"
     android:weightSum="100"
-    tools:context=".LoginPhoneNumberActivity">
+    tools:context=".LoginOtpActivity">
 
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_weight="26"
-        android:src="@drawable/phone_icon"
+        android:src="@drawable/otp_icon"
         app:tint="@color/accent"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="4"
-        android:text="Enter mobile number"
+        android:layout_weight="6"
+        android:gravity="center"
+        android:text="Enter OTP sent to your phone number"
         android:layout_gravity="center_vertical"
         android:letterSpacing="0.08"
         android:textStyle="bold"
-        android:textSize="26sp"
+        android:textSize="18sp"
         />
 
     <LinearLayout
@@ -36,43 +37,44 @@
         android:orientation="horizontal"
         android:gravity="center">
 
-        <com.hbb20.CountryCodePicker
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:ccp_showNameCode="false"
-            app:ccp_defaultNameCode="BG"
-            android:id="@+id/login_countrycode"/>
-
         <EditText
-            android:layout_width="match_parent"
+            android:layout_width="259dp"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:hint="Mobile"
-            android:inputType="phone"
             android:layout_margin="10dp"
             android:background="@drawable/edit_text_rounded_corner"
             android:elevation="5dp"
-            android:id="@+id/login_mobile_number"
-            />
+            android:hint="OTP"
+            android:inputType="number"
+            android:maxLength="6"
+            android:padding="10dp"
+            android:id="@+id/login_otp"/>
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="173dp"
+        android:layout_width="193dp"
         android:layout_height="143dp"
         android:layout_weight="56"
         android:gravity="bottom"
         android:orientation="vertical">
 
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="191dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/accent"
             android:gravity="center"
-            android:text="SEND OTP"
+            android:text="CONFIRM OTP"
             android:textSize="8pt"
-            android:id="@+id/send_otp_btn"/>
+            android:id="@+id/confirm_otp_btn"/>
 
     </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="Resend OTP in 30 seconds"
+        android:id="@+id/resend_otp_textview"/>
 
 </LinearLayout>
