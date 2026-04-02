@@ -24,6 +24,9 @@ import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.stoya.chatmobileapplication.utils.AndroidUtil;
+
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
 public class LoginOtpActivity extends AppCompatActivity {
@@ -63,10 +66,15 @@ public class LoginOtpActivity extends AppCompatActivity {
             PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationCode, enteredOtp);
             signIn(credential);
         });
+
+        resendOtp.setOnClickListener(e -> {
+            sendOtp(phoneNumber, true);
+        });
     }
 
     // Разглеждаме дали
     void sendOtp(String phoneNumber, boolean isResend){
+        startRecendTimer();
         PhoneAuthOptions.Builder builder =
                 PhoneAuthOptions.newBuilder(mAuth)
                         .setPhoneNumber(phoneNumber)
@@ -117,5 +125,26 @@ public class LoginOtpActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    void startRecendTimer(){
+        // Заключваме текста за препращане на нов код, докато не ни потрябва.
+        resendOtp.setEnabled(false);
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                // Намаляваме секундите на таймера постепенно, докато не свърши таймера и ако това се случи, се рестартира от начало и бутона вече е кликаем.
+                timeoutSeconds--;
+                resendOtp.setText("Resend OTP in "+ timeoutSeconds +" seconds");
+                if(timeoutSeconds <= 0){
+                    timeoutSeconds = 60L;
+                    timer.cancel();
+                    runOnUiThread(() -> {
+                        resendOtp.setEnabled(true);
+                    });
+                }
+            }
+        }, 0, 1000);
     }
 }
