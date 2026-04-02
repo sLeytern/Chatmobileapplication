@@ -39,7 +39,7 @@
 
         <EditText
             android:layout_width="259dp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_margin="10dp"
             android:background="@drawable/edit_text_rounded_corner"
             android:elevation="5dp"

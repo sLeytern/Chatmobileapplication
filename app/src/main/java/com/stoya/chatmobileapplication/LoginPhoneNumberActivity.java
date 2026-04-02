@@ -30,17 +30,21 @@ public class LoginPhoneNumberActivity extends AppCompatActivity {
             return insets;
         });
 
+        // Намираме нужните стойности по id и ги записваме в Java променливи
         countryCodePicker = findViewById(R.id.login_countrycode);
         phoneInput = findViewById(R.id.login_mobile_number);
         sendOtpBtn = findViewById(R.id.send_otp_btn);
 
+        // Свързва полето за телефонен номер с CountryCodePicker, за да се получи пълният номер с код на държава
         countryCodePicker.registerCarrierNumberEditText(phoneInput);
+        // Правя ламбда функция която да изпълни проверка за валидността на номера и последователно преминаване в следващо Activity
         sendOtpBtn.setOnClickListener((e)->{
             if(!countryCodePicker.isValidFullNumber()){
                 phoneInput.setError("Phone number is invalid");
                 return;
             }
             Intent intent = new Intent(LoginPhoneNumberActivity.this, LoginOtpActivity.class);
+            // При промяна на Activity
             intent.putExtra("phone", countryCodePicker.getFullNumberWithPlus());
             startActivity(intent);
         });
