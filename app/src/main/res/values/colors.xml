@@ -6,7 +6,8 @@
     <color name="accent">#FF8A3D</color>
     <color name="textPrimary">#2D241E</color>
     <color name="textSecondary">#8D7B6D</color>
-    <color name="divider">#D8D0C8</color>
+    <color name="textTertiary">#F8F3EE</color>
+    <color name="divider">#EEDFD2</color>
     <color name="surface">#F4EFE8</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
