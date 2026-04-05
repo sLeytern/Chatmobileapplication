@@ -41,12 +41,14 @@ public class MainActivity extends AppCompatActivity {
         searchButton = findViewById(R.id.main_search_btn);
 
         searchButton.setOnClickListener(e -> {
+            // При кликане на снимката на търсачка отиваме към ново Activity за търсене на потребители
             startActivity(new Intent(MainActivity.this, SearchUserActivity.class));
         });
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                // Правим проверка за това кой фрагмент е избран, за да можем да преминем към съответния екран
                 if(menuItem.getItemId() == R.id.menu_chat) {
                     getSupportFragmentManager().beginTransaction().replace(R.id.main_frame_layout, chatFragment).commit();
                 }
@@ -57,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // По подразбиране оставяме да бъде избран фрагмента за чатове
         bottomNavigationView.setSelectedItemId(R.id.menu_chat);
     }
 }

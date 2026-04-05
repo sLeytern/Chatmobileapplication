@@ -28,10 +28,12 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                // Взимаме отговора на булевата променлива дали имаме данните на uid-то и ако го има значи сме се логнали и влизаме в приложението
                 if(FirebaseUtil.isLoggedIn()) {
                     startActivity(new Intent(SplashActivity.this, MainActivity.class));
 
                 }
+                // Ако не се показват данни значи не е логнат потребителя, следователно ни ориентира към екрана за логин по тел. номер
                 else {
                     startActivity(new Intent(SplashActivity.this, LoginPhoneNumberActivity.class));
                 }
